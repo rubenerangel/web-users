@@ -24,6 +24,9 @@ const store = new Vuex.Store({
     },
     setUserTodo(state, payLoad) {
       state.todos = payLoad
+    },
+    setTodoToArray(state, payLoad) {
+      state.todos.unshift(payLoad)
     }
   },
   actions: {
@@ -76,6 +79,9 @@ const store = new Vuex.Store({
     async getUserTodo({ commit }, user) {
       const response = await axios.get(`${URLTODOS}${user}`)
       commit('setUserTodo', response.data );
+    },
+    addTodo({commit}, todo) {
+      commit('setTodoToArray', todo)
     }
   },
   modules: {
