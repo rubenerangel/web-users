@@ -7,11 +7,11 @@
           <h5>{{ user.name }}</h5>
         </div>
         <div>
-          <input type="text" name="" id="" v-model.trim="newTodo.title" >
+          <input type="text" name="" id="" v-model.trim="newTodo.title" @keypress="clearError">
           <button class="button" @click="addTodo">Add New Todo</button>
         </div>
+        <span v-if="error" class="error">Please add <b>TODO</b></span>
         <div v-show="todos.length" class="comments">
-          
           <div v-for="todo in todos" :key="todo.id" class="comment">
             <p>{{ todo.title }}</p>
           </div>
@@ -39,7 +39,8 @@ export default {
     return{
       newTodo : {
         title: null
-      }
+      },
+      error: false
     }
   },
   methods: {
@@ -52,8 +53,16 @@ export default {
       this.showTodosModal = true
     },
     addTodo() {
+      if(this.newTodo.title == null) {
+        this.error = true
+        return false
+      }
+
       this.$store.dispatch('addTodo', this.newTodo)
       this.newTodo = {}
+    },
+    clearError() {
+      this.error = false
     }
   },
 };
