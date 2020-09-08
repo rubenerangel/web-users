@@ -3,7 +3,10 @@
     <the-side-bar @logout="logout" />
 
     <div class="main-dashboard">
-      <the-dashboard-nav :userProfile="userProfile" />
+      <the-dashboard-nav 
+        :userProfile="userProfile" 
+        @logout="logout"
+      />
 
       <button class="button"><i class="fas fa-plus"></i> &nbsp; Add New User</button>
 
@@ -49,31 +52,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrapper-dashboard {
+  display:flex;
+  background: #F5F6FA;;
+
+  .main-dashboard {
+    flex: 4;
+    margin: 0.7rem 1rem;
+    padding: 1rem;
+
+    .button {
+      margin: 1rem 0px;
+    }
+  }
+
+  .users-table {
+    padding: 2rem;
+    background: #fff;
+    width: 90%;
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+}  
+}
+
+@media (max-width: 575px) {
   .wrapper-dashboard {
-    display:flex;
-    background: #F5F6FA;;
+    flex-direction: row;
 
     .main-dashboard {
-      flex: 4;
-      margin: 0.7rem 1rem;
-      padding: 1rem;
-
-      .button {
-        margin: 1rem 0px;
-      }
+      flex: 1;
+      margin: 0.3rem 0.5rem;
+      padding: 0px;
     }
 
     .users-table {
-      padding: 2rem;
-      background: #fff;
-      width: 90%;
-
-      .header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-    }  
+      width: 95%;
+      padding: 0.2rem;
+    }
   }
+}
 </style>

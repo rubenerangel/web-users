@@ -12,6 +12,13 @@
             </span>
           </li>
           <li>{{userProfile.name}}</li>
+          <li class="mobile">
+            <a @click="logout()">
+              <i class="fas fa-sign-out-alt fa-rotate-180"></i>Logout
+            </a>
+          </li>
+          
+        
         </ul>
       </div>
     </nav>
@@ -24,6 +31,11 @@ export default {
   props: {
     userProfile: {
       type: Object
+    }
+  },
+  methods: {
+    logout() {
+      this.$emit('logout')
     }
   },
 };
@@ -56,5 +68,18 @@ export default {
     border: 0.1rem #000 solid;
     border-radius: 50%;
   }
+
+  .mobile {
+    display:none;
+  }
 }
+
+@media (max-width: 575px) {
+  .dashboard-navbar {
+    .mobile {
+      display:inline ;
+    }
+  }
+}
+
 </style>

@@ -53,4 +53,10 @@ export default {
     }
   }
 }
+
+@media (max-width: 575px) {
+  .sidebar {
+    display: none;
+  }
+}
 </style>

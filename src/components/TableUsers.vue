@@ -7,9 +7,9 @@
           <th>Name</th>
           <th>Last Name</th>
           <th>Email</th>
-          <th>Addres</th>
-          <th>Company</th>
-          <th>Options</th>
+          <th class="xs-hidden">Addres</th>
+          <th class="xs-hidden">Company</th>
+          <th> Options</th>
         </tr>
       </thead>
       <tbody>
@@ -18,8 +18,8 @@
           <td>{{ user.name | firstName }}</td>
           <td>{{ user.name | lastName }}</td>
           <td>{{ user.email | toLowerCase }}</td>
-          <td class="justify">{{ user.address | formatAddress }}</td>
-          <td>{{ user.company.name }}</td>
+          <td class="justify xs-hidden">{{ user.address | formatAddress }}</td>
+          <td class="xs-hidden">{{ user.company.name }}</td>
           <td class="text-center">
             <a title="view todos" @click="viewTodos(user)">
               <i class="fas fa-search"></i>
@@ -118,6 +118,12 @@ export default {
 
   tr:nth-child(even) {
     background-color: #f5f6fa;
+  }
+}
+
+@media (max-width: 575px) {
+  .xs-hidden {
+    display: none;
   }
 }
 </style>

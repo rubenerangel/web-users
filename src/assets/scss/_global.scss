@@ -137,7 +137,8 @@ section {
 	color: $white;
 	padding: 0.8rem 1rem;
   min-width: 195px;
-  min-height: 48;
+	min-height: 48px;
+	height: 48px;
 	font-size: 16px;
 	border-radius: 8px;
 	cursor: pointer;
@@ -219,4 +220,16 @@ form {
 .fade-enter,
 .fade-leave-to {
 	opacity: 0;
+}
+
+@media (max-width: 575px) {
+	.button {
+		padding: 0.4rem 0.5rem;
+		min-width: 115px;
+		width: 115px;
+		min-height: 30px;
+		height: 30px;
+		font-size: 11px;
+		border-radius: 4px;
+	}
 }
