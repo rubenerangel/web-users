@@ -102,3 +102,30 @@ header {
   font-weight: 600;
   margin-bottom: 1rem;
 }
+
+.login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: 1;
+
+  form {
+    margin-top: 3rem;
+    width: 30%;
+  }
+
+  .extras {
+    margin-top: 1.5rem;
+  }
+
+  .extras > a {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 575px) {
+    form {
+      margin-top: 3rem;
+      width: 90%;
+    }
+  }
+}

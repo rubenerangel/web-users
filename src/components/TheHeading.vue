@@ -16,17 +16,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   name: 'TheHeading',
   methods: {
     logout() {
       this.$store.dispatch('logout')
     }
-  },
-  computed: {
-    ...mapState(['userProfile'])
   }
 }
 </script>

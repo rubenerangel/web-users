@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SiteNav v-if="showNav == false"></SiteNav>
+    <site-nav v-if="showNav == false" />
     
     <router-view/>
   </div>

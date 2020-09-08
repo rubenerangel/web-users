@@ -2,18 +2,18 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as fb from '../firebase';
 import router from '../router/index'
+import services from './services'
 import axios from 'axios'
-
-const URLPLACEHOLDER = 'https://jsonplaceholder.typicode.com/users/'
-const URLTODOS = 'https://jsonplaceholder.typicode.com/todos?userId='
+import {URLPLACEHOLDER, URLTODOS} from './constants'
 
 Vue.use(Vuex)
 
- const store = new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     userProfile: {},
     users: [],
-    todos: []
+    todos: [],
+    services
   },
   mutations: {
     setUserProfile(state, payLoad) {

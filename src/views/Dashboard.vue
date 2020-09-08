@@ -102,6 +102,9 @@ export default {
       user: {}
     }
   },
+  created () {
+    this.getAllUsers()
+  },
   computed: {
     ...mapState(['users', 'todos', 'userProfile']),
   },
@@ -119,6 +122,16 @@ export default {
       this.user = {};
       this.showTodosModal = false;
     },
+    getAllUsers() {
+      this.$store.state.services.jsonPlace
+        .getUsers()
+        .then(resp => {
+          console.log(resp);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
   },
   filters: {
     firstName(name) {
